@@ -13,7 +13,7 @@
         href="{% static 'style_css/style.css' %}"
     >
 </head>
-
+ 
 <body>
     <main class="container">
         <h1>Welcome Staff</h1>
@@ -33,6 +33,17 @@
         <p class="welcome-text">
             You are logged in as a staff member.
         </p>
+        <div class = "Dashboard actions">
+            <a href=" {% url 'manage_hunts' %}" class="Dashboard-button">
+                Manage Hunts
+            </a>
+            <a href="{% url 'question_pool' %}" class="Dashboard-button">
+                Question Pool
+            </a>
+            <a href="{% url 'manage_sessions' %}" class="Dashboard-button">
+                Manage Sessions
+            </a>
+        </div>
 
         <form
             method="post"

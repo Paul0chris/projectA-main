@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Hunts | ECU Scavenger Hunt</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'style_css/style.css' %}"
+    >
+</head>
+
+<body>
+
+<main class="container">
+
+    <h1>Manage Hunts</h1>
+
+    <div class="accent-line"></div>
+
+    <p>
+        Create a new hunt or manage one of your existing hunts.
+    </p>
+
+    <div class="dashboard-actions">
+
+        <a href="{% url 'create_hunt' %}" class="dashboard-button">
+            Create New Hunt
+        </a>
+
+    </div>
+
+    <h2>Existing Hunts</h2>
+
+    {% if hunts %}
+
+        {% for hunt in hunts %}
+
+            <div class="hunt-card">
+
+                <h3>{{ hunt.title }}</h3>
+
+                <p>{{ hunt.description }}</p>
+
+                <a href="{% url 'edit_hunt' hunt.id %}">
+                    Manage Hunt
+                </a>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            No hunts have been created yet.
+        </p>
+        
+
+    {% endif %}
+    <a href="{% url 'staff_dashboard' %}">
+        Back to Dashboard
+    </a>
+</main>
+
+</body>
+</html>

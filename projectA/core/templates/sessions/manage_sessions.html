@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Sessions | ECU Scavenger Hunt</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'style_css/style.css' %}"
+    >
+</head>
+
+<body>
+
+<main class="container">
+
+    <h1>Manage Sessions</h1>
+
+    <div class="accent-line"></div>
+
+    <p>
+        View and manage currently active scavenger hunt sessions.
+    </p>
+    
+
+    {% if sessions %}
+
+        {% for session in sessions %}
+
+            <div class="session-card">
+
+                <h2>{{ session.hunt.title }}</h2>
+
+                <p>
+                    Join Code:
+                    <strong>{{ session.join_code }}</strong>
+                </p>
+
+                <p>
+                    Participants:
+                    {{ session.participants.count }}
+                </p>
+
+                <a href="{% url 'session_detail' session.id %}">
+                    View Session
+                </a>
+                
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            There are currently no active sessions.
+        </p>
+
+    {% endif %}
+        <a href="{% url 'staff_dashboard' %}">
+        Back to Dashboard
+    </a>
+</main>
+
+</body>
+</html>
