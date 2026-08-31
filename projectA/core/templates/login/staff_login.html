@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Login | ECU Scavenger Hunt</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'style_css/style.css' %}"
+    >
+</head>
+
+<body>
+    <main class="container">
+        <h1>ECU Scavenger Hunt</h1>
+
+        <div class="accent-line"></div>
+
+        <p class="welcome-text">
+            Staff and administrator login
+        </p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message {{ message.tags }}">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <button type="submit">
+                Login
+            </button>
+        </form>
+    </main>
+</body>

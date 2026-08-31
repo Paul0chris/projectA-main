@@ -1,0 +1,28 @@
+<!DOCTYPE html >
+<html >
+    <head >
+        <title >
+            Homepage
+        </title>
+    </head >
+    <body style="color : grey">
+        <h1>
+            Welcome to the example html, good html pending...
+        </h1>
+        <p1>The server is online and working</p1>
+        <p id="Status">server status...</p>
+        <script>
+            fetch("/")
+            .then(()=>{
+                document.getElementById("Status").textContent = "Online";
+            })
+            .catch(()=>{
+                document.getElementById("Status").textContent = "Offline";
+            })
+        </script>
+        <p2 style=" color: olivedrab;">
+            possible bckg color?
+        </p2>
+
+    </body>
+</html>
