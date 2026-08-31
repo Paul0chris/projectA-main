@@ -1,28 +1,30 @@
-<!DOCTYPE html >
-<html >
-    <head >
-        <title >
-            Homepage
-        </title>
-    </head >
-    <body style="color : grey">
-        <h1>
-            Welcome to the example html, good html pending...
-        </h1>
-        <p1>The server is online and working</p1>
-        <p id="Status">server status...</p>
-        <script>
-            fetch("/")
-            .then(()=>{
-                document.getElementById("Status").textContent = "Online";
-            })
-            .catch(()=>{
-                document.getElementById("Status").textContent = "Offline";
-            })
-        </script>
-        <p2 style=" color: olivedrab;">
-            possible bckg color?
-        </p2>
+{% load static %}
 
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> ECU Scavenger Hunt</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'style_css/style.css' %}"
+    >
+</head>
+
+<body>
+    <main class="container">
+        <h1>Welcome!</h1>
+
+        <div class="accent-line"></div>
+
+
+        <p class="welcome-text">
+            You are visiting the scavenger hunt homapage, full functionality pending....
+        </p>
+
+    </main>
+</body>
 </html>
