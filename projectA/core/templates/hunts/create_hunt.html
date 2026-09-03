@@ -22,9 +22,16 @@
 
     <div class="accent-line"></div>
 
-    <p>
-        This is where staff will create a new scavenger hunt.
-    </p>
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        
+        <button type="submit">
+            Create hunt
+        </button>
+
+    </form>
 
     <a href="{% url 'staff_dashboard' %}">
         Back to Dashboard
